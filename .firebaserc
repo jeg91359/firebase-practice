@@ -1,5 +1,11 @@
 {
-  "projects": {
-    "default": "fs1prod-27deb"
+  "targets": {
+    "fir-practice-2b673": {
+      "hosting": {
+        "firebase-practice": [
+          "fir-practice-2b673"
+        ]
+      }
+    }
   }
 }
