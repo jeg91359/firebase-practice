@@ -32,7 +32,7 @@
     "core-js": "2.6.5",
     "firebase": "^7.13.1",
     "font-awesome": "4.7.0",
-    "jquery": "3.3.1",
+    "jquery": "3.4.0",
     "jw-bootstrap-switch-ng2": "2.0.5",
     "ng2-nouislider": "1.7.13",
     "ngx-chips": "2.1.0",
