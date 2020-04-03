@@ -23,9 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/sass/now-ui-kit.scss",
+              "src/assets/sass/demo.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/rellax/rellax.min.js"
+            ]
           },
           "configurations": {
             "production": {
