@@ -7,23 +7,46 @@ import { RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app.routing';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule, AngularFireAuthGuard } from '@angular/fire/auth-guard';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { LoginComponent } from './login/login.component';
+
+export  function appFactory() {
+  return 'auth_shit';
+};
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AppRoutingModule,
     NgbModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase, appFactory,
+      {
+        toastMessageOnAuthSuccess: false, // whether to open/show a snackbar message on auth success - default : true
+        toastMessageOnAuthError: false, // whether to open/show a snackbar message on auth error - default : true
+        authGuardFallbackURL: 'login',
+        authGuardLoggedInURL: '',// Password length min/max in forms independently of each componenet min/max.
+        guardProtectedRoutesUntilEmailIsVerified: false,
+        enableEmailVerification: false, // default: true
+      })
   ],
-  providers: [],
+  providers: [    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
