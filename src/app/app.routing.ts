@@ -5,12 +5,17 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { LoggedInGuard } from 'ngx-auth-firebaseui';
 import { LoginComponent } from './login/login.component';
+import { BlogpostComponent } from './blogpost/blogpost.component';
+import { BlogpostsComponent } from './blogposts/blogposts.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [LoggedInGuard] },
+  { path: '', component: BlogpostComponent,  },
   { path: 'login', component: LoginComponent, },
-  { path: '**', redirectTo: '/', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent },
+  { path: 'blogpost', component: BlogpostComponent },
+  { path: 'blogposts', component: BlogpostsComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -15,6 +15,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { LoginComponent } from './login/login.component';
+import { BlogpostComponent } from './blogpost/blogpost.component';
+import { BlogpostsComponent } from './blogposts/blogposts.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 export  function appFactory() {
   return 'auth_shit';
@@ -26,6 +29,9 @@ export  function appFactory() {
     AppComponent,
     HomeComponent,
     LoginComponent,
+    BlogpostComponent,
+    BlogpostsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
