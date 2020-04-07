@@ -10,7 +10,7 @@ import { BlogpostsComponent } from './blogposts/blogposts.component';
 
 
 const routes: Routes = [
-  { path: '', component: BlogpostComponent,  },
+  { path: '', component: BlogpostsComponent,  },
   { path: 'login', component: LoginComponent, },
   { path: 'home', component: HomeComponent },
   { path: 'blogpost', component: BlogpostComponent },
