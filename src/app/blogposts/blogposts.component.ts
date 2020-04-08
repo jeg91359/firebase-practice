@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BlogpostsService } from "./blogposts.service";
 import * as Rellax from "rellax";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-blogposts",
@@ -10,21 +11,19 @@ import * as Rellax from "rellax";
 export class BlogpostsComponent implements OnInit {
   data: Date = new Date();
   focus;
-  items: any;
+  items;
 
-  constructor(public blogpostsService: BlogpostsService) {}
+  constructor(public blogpostsService: BlogpostsService, private router: Router) {}
 
   ngOnInit() {
-    this.blogpostsService
-      .getItems()
-      .toPromise()
-      .then((data) => {let items = [];
+    this.blogpostsService.getBlogPosts().subscribe(data => {
+      let items = [];
         data.forEach(function (doc) {
-          console.log(doc.id, " => ", doc.data());
-          items.push(doc.data());
+          let item = doc.payload.doc.data();
+          item['id'] = doc.payload.doc.id;
+          items.push(item);
         });
         this.items = items;
-        console.log(items);
       });
 
     var rellaxHeader = new Rellax(".rellax-header");
@@ -39,5 +38,12 @@ export class BlogpostsComponent implements OnInit {
     body.classList.remove("blog-posts");
     var navbar = document.getElementsByTagName("nav")[0];
     navbar.classList.remove("navbar-transparent");
+  }
+
+
+  goToBlogPost(id: String)
+  {
+    console.log(id);
+    this.router.navigate(['blogpost/' + id]);
   }
 }

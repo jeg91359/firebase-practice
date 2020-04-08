@@ -14,8 +14,8 @@ export class BlogpostsService {
 
   }
 
-  getItems() : Observable<any>{
-    return this.firestore.collection("blogposts").get();
+  getBlogPosts(){
+    return this.firestore.collection("blogposts").snapshotChanges();
     
     // this.firestore.collection("blogposts").get().then(function(querySnapshot) {
     //   querySnapshot.forEach(function(doc) {

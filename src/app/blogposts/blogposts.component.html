@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <div class="card-title text-left">
                                 <h2>
-                                    <a href="#pablo">
+                                    <a (click)="goToBlogPost(items[0].id)">
                                         {{items[0].title}}
                                     </a>
                                 </h2>
@@ -32,7 +32,7 @@
                             <div class="card-footer text-left">
                                 <div class="stats">
                                     <span>
-                                        <i class="now-ui-icons users_circle-08"></i>{{items[0].author_name}}
+                                        <i class="now-ui-icons users_circle-08"></i>
                                     </span>
                                     <span>
                                         <i class="now-ui-icons tech_watch-time"></i> June 2, 2017

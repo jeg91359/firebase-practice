@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as Rellax from 'rellax';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blogpost',
@@ -10,9 +12,15 @@ export class BlogpostComponent implements OnInit, OnDestroy {
     data : Date = new Date();
     focus;
 
-  constructor() { }
+  constructor( private route: ActivatedRoute) { }
+
+
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+        console.log(+params.get('id'));
+      });
+
     var rellaxHeader = new Rellax('.rellax-header');
       var body = document.getElementsByTagName('body')[0];
       body.classList.add('blog-post');

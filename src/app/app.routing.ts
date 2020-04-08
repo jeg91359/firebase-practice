@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', component: BlogpostsComponent,  },
   { path: 'login', component: LoginComponent, },
   { path: 'home', component: HomeComponent },
-  { path: 'blogpost', component: BlogpostComponent },
+  { path: 'blogpost/:id', component: BlogpostComponent },
   { path: 'blogposts', component: BlogpostsComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
