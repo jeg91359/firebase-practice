@@ -11,11 +11,12 @@ import { Router } from '@angular/router';
 export class BlogpostsComponent implements OnInit {
   data: Date = new Date();
   focus;
-  items;
+  items = [];
 
   constructor(public blogpostsService: BlogpostsService, private router: Router) {}
 
   ngOnInit() {
+    
     this.blogpostsService.getBlogPosts().subscribe(data => {
       let items = [];
         data.forEach(function (doc) {
@@ -26,8 +27,8 @@ export class BlogpostsComponent implements OnInit {
         this.items = items;
       });
 
-    var rellaxHeader = new Rellax(".rellax-header");
 
+    var rellaxHeader = new Rellax(".rellax-header");
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("blog-posts");
     var navbar = document.getElementsByTagName("nav")[0];
