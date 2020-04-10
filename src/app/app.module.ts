@@ -6,11 +6,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app.routing';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule, AngularFireAuthGuard } from '@angular/fire/auth-guard';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
@@ -38,6 +38,7 @@ export  function appFactory() {
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,

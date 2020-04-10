@@ -24,13 +24,9 @@ export class BlogpostComponent implements OnInit, OnDestroy {
       this.blogpostService.getBlogPost(id).subscribe(data => {
 
         let item = data.payload.data();
-        console.log('shit')
         console.log(item)
         this.blog = item;
       });
-
-
-
 
     var rellaxHeader = new Rellax('.rellax-header');
     var body = document.getElementsByTagName('body')[0];

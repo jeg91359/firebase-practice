@@ -1,18 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Injectable } from "@angular/core";
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class BlogpostsService {
+  constructor(private firestore: AngularFirestore) {}
 
-  constructor(private firestore: AngularFirestore) {
-
-  }
-
-  getBlogPosts(){
+  getBlogPosts() {
     return this.firestore.collection("blogposts").snapshotChanges();
   }
-  
 }
