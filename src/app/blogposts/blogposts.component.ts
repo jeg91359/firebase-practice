@@ -12,7 +12,7 @@ import { AngularFireStorage } from "@angular/fire/storage";
 export class BlogpostsComponent implements OnInit {
   data: Date = new Date();
   focus;
-  items = [];
+  items = [];  
 
   constructor(
     public blogpostsService: BlogpostsService,
