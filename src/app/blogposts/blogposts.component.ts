@@ -27,16 +27,11 @@ export class BlogpostsComponent implements OnInit {
       data.forEach(function (doc) {
         let item = doc.payload.doc.data();
         item["id"] = doc.payload.doc.id;
-        console.log(item["page_header_image"]);
         const ref = storage.ref(item["page_header_image"]);
-        // this.profileUrl = ref.getDownloadURL();
-        // console.log(this.profileUrl);
-        ref.getDownloadURL().subscribe(data => {
-          console.log(data);
+        ref.getDownloadURL().subscribe((data) => {
           item["page_header_image_url"] = data;
+          items.push(item);
         });
-        items.push(item);
-        console.log(item["page_header_image_url"]);
       });
       this.items = items;
     });
