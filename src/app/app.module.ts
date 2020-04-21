@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app.routing';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule, AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { LoginComponent } from './login/login.component';
 import { BlogpostComponent } from './blogpost/blogpost.component';
@@ -27,7 +26,6 @@ export  function appFactory() {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
     BlogpostComponent,
     BlogpostsComponent,

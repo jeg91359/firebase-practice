@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { BlogpostService } from './blogpost.service';
 import { NgControlStatus } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-blogpost',
@@ -16,14 +17,20 @@ export class BlogpostComponent implements OnInit, OnDestroy {
   focus;
   blog;
 
-  constructor(private route: ActivatedRoute, private blogpostService: BlogpostService) { }
+  constructor(private route: ActivatedRoute, private blogpostService: BlogpostService,     private storage: AngularFireStorage) { }
 
   ngOnInit() {
 
     let id = this.route.snapshot.paramMap.get("id");
+    let storage = this.storage;
       this.blogpostService.getBlogPost(id).subscribe(data => {
 
         let item = data.payload.data();
+        const ref = storage.ref(item["mainImageUrl"]);
+        ref.getDownloadURL().subscribe((data) => {
+          item["mainImageUrl"] = data;
+        });
+
         console.log(item)
         this.blog = item;
       });
